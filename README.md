@@ -1,9 +1,7 @@
-# ansible_test_tasks
-
-# Start crteate user
+# 8. Start crteate user
 ansible-playbook scripts/create_user.yml -e @passwords
 
-# Start iptbles rules
+# 8.1 Start iptbles rules
 ansible-playbook scripts/iptables.yml -e @passwords
 
 # File content  passwords
