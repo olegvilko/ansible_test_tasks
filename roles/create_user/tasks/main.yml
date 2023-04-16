@@ -1,0 +1,7 @@
+---
+# tasks file for create_user
+- name: Add user
+  user:
+    name: "{{ new_user }}"
+    password: "{{ vault_user_pass | password_hash('sha512', 'mysecretsalt') }}"
+  become: yes

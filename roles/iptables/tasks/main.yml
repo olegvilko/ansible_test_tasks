@@ -1,0 +1,24 @@
+---
+# tasks file for iptables
+- name: Allow traffic
+  iptables:
+    chain: INPUT
+    protocol: tcp
+    source: 123.145.167.254
+    destination_port: 9100
+    jump: ACCEPT
+  become: yes
+
+- name: Allow SSH-port
+  iptables:
+    chain: INPUT
+    protocol: tcp
+    destination_port: 37656
+    jump: ACCEPT
+  become: yes
+
+- name: Drop all
+  iptables:
+    chain: INPUT
+    jump: DROP
+  become: yes
